@@ -11,7 +11,7 @@ namespace cansender {
   }
 
   bool CanSender::hasId(uint32_t id, bool extended) {
-  return id != 0;
+  return true;
   }
 
 
