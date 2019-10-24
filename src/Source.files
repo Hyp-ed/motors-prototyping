@@ -9,3 +9,6 @@ SRCS := \
   utils/io/can.cpp \
   utils/logger.cpp \
   utils/system.cpp \
+  Michal/Dog.cpp \
+  Michal/CanSender.cpp \
+  
