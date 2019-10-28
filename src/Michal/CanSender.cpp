@@ -13,8 +13,6 @@ namespace cansender {
           log_.INFO("MOTOR","%0x %0x %0x %0x %0x %0x %0x %0x", message.data[0], message.data[1], message.data[2],message.data[3],
                      message.data[4], message.data[5], message.data[6], message.data[7]);
 
-        printf("%x %x %x %x %x %x %x %x", message.data[0], message.data[1], message.data[2],message.data[3],
-                     message.data[4], message.data[5], message.data[6], message.data[7]);
 
     }
     else {
