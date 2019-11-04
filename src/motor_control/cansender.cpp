@@ -25,10 +25,16 @@ bool CanSender::sendMessage(utils::io::can::Frame &message)
   log_.INFO("MOTOR", "Sending Message");
   can_.send(message);
   return true;
-  }
+}
 
 bool CanSender::hasId(uint32_t id, bool extended)
 {
-  return true;
+   if (node_id_ == id) 
+   {
+     return true; 
+   } 
+
+   return false;
 }
 }}
+
