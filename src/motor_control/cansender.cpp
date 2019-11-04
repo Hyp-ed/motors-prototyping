@@ -14,7 +14,12 @@ CanSender::CanSender(Logger &log, uint8_t node_id)
 }
 
 void CanSender::processNewData(Frame &message)
-{}
+{
+  isSending = false;
+  uint32_t id = message.id;
+  if (id == node_id_){
+     log_.INFO("MOTOR", "%x",message.data[0], "%x",message.data[1], message.data[2], "%x",message.data[3], "%x",message.data[4], "%x",message.data[5], "%x",message.data[6], "%x",message.data[7]);
+}
 
 bool CanSender::sendMessage(utils::io::can::Frame &message)
 {
