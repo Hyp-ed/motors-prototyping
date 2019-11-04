@@ -23,7 +23,7 @@ class CanSender : public CanProccesor
   CanSender(Logger &log_, uint8_t node_id);
 
   /**
-   * @brief Send a massage
+   * @brief Send a message
    *
    * @param massage
    * @return true
