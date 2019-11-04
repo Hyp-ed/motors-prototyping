@@ -16,25 +16,33 @@ class CanSender : public CanProccesor
  public:
   /**
    * @brief Construct a new Can Sender object
-   * 
-   * @param log_ 
-   * @param node_id 
+   *
+   * @param log_
+   * @param node_id
    */
   CanSender(Logger &log_, uint8_t node_id);
 
   /**
+   * @brief Send a massage
+   *
+   * @param massage
+   * @return true
+   */
+  bool sendMessage(Frame &message);
+
+  /**
    * @brief function to process data received
-   * 
-   * @param message 
+   *
+   * @param message
    */
   void processNewData(Frame &message) override;
 
   /**
    * @brief Check that the message is meant for this node
-   * 
-   * @param id 
-   * @param extended 
-   * @return true 
+   *
+   * @param id
+   * @param extended
+   * @return true
    */
   bool hasId(uint32_t id, bool extended) override;
 
@@ -42,7 +50,7 @@ class CanSender : public CanProccesor
   Logger& log_;
   uint8_t node_id_;
   Can& can_;
-  
+
 };
 
 }}  // namespace hyped::motor_control
