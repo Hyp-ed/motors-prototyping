@@ -11,6 +11,7 @@ CanSender::CanSender(Logger &log, uint8_t node_id)
     can_(Can::getInstance())
 {
   can_.start();
+  can_.registerProcessor(this);
 }
 
 void CanSender::processNewData(Frame &message)
