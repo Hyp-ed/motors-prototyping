@@ -17,7 +17,7 @@ void CanSender::processNewData(Frame &message)
 {
   uint32_t id = message.id;
   if (id == node_id_){
-     log_.INFO("MOTOR", "%x",message.data[0], "%x",message.data[1], message.data[2], "%x",message.data[3], "%x",message.data[4], "%x",message.data[5], "%x",message.data[6], "%x",message.data[7]);
+     log_.INFO("MOTOR", "%x%x%x%x%x%x%x%x",message.data[0], message.data[1], message.data[2], message.data[3], message.data[4], message.data[5], message.data[6], message.data[7]);
   }
 }
 
