@@ -29,18 +29,20 @@ int main(int argc, char** argv)
   System::parseArgs(argc, argv);
   Logger log = System::getLogger();
 
-  CanSender* cansender = new CanSender(log, 1);
+  CanSender* cansender = new CanSender(log, 2);
   Frame message;
   message.id=2;
   message.len = 8;
 
   char str[] = {32,32,32,32,32,32,32,32};
-  getMessage(str);
+  // getMessage(str);
 
   for(int i = 0; i<8; i++) {
     message.data[i] = (uint8_t) str[i];
   }
 
   cansender->sendMessage(message);
+  while(true){
   Thread::sleep(10);
+  }
 }
