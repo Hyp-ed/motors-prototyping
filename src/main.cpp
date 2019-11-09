@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
   CanSender* cansender = new CanSender(log, 1);
   Frame message;
-  message.id=1;
+  message.id=2;
   message.len = 8;
 
   char str[] = {32,32,32,32,32,32,32,32};
