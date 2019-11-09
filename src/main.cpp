@@ -42,6 +42,5 @@ int main(int argc, char** argv)
   }
 
   cansender->sendMessage(message);
-
   Thread::sleep(10);
 }
