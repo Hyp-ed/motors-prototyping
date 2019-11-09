@@ -11,6 +11,7 @@ CanSender::CanSender(Logger &log, uint8_t node_id)
     can_(Can::getInstance())
 {
   can_.start();
+  utils::concurrent::Thread::sleep(1000);
   can_.registerProcessor(this);
 }
 
@@ -18,7 +19,7 @@ void CanSender::processNewData(Frame &message)
 {
   uint32_t id = message.id;
   if (id == node_id_){
-     log_.INFO("MOTOR", "%x%x%x%x%x%x%x%x",message.data[0], message.data[1], message.data[2], message.data[3], message.data[4], message.data[5], message.data[6], message.data[7]);
+     log_.INFO("MOTOR", "%c%c%c%c%c%c%c%c",message.data[0], message.data[1], message.data[2], message.data[3], message.data[4], message.data[5], message.data[6], message.data[7]);
   }
 }
 

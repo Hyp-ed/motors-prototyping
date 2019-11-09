@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "utils/logger.hpp"
 #include "utils/system.hpp"
 #include "motor_control/cansender.hpp"
@@ -10,6 +11,19 @@ using hyped::motor_control::CanSender;
 using hyped::utils::concurrent::Thread;
 using hyped::utils::io::can::Frame;
 
+void getMessage(char* str)
+{
+  puts("Enter a message (< 8 chars):");
+  for (int i = 0; i < 8; i++){
+    char c = getchar();
+    if (c == '\n') {
+      break;
+    }
+    str[i] = c;
+  }
+
+}
+
 int main(int argc, char** argv)
 {
   System::parseArgs(argc, argv);
@@ -19,10 +33,14 @@ int main(int argc, char** argv)
   Frame message;
   message.id=1;
   message.len = 8;
-  
+
+  char str[] = {32,32,32,32,32,32,32,32};
+  getMessage(str);
+
   for(int i = 0; i<8; i++) {
-    message.data[i]=0;
+    message.data[i] = (uint8_t) str[i];
   }
+
   cansender->sendMessage(message);
 
   Thread::sleep(10);
